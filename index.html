@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SIRDIO PLAY - 24/7 LIVE</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#08080f;color:#fff;font-family:system-ui}
+.top{background:#B9FF00;color:#000;text-align:center;padding:8px;font-size:11px;font-weight:900}
+.card{background:#11111d;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px;margin:12px}
+.play{width:68px;height:68px;background:#fff;border-radius:50%;border:none;font-size:26px;color:#000}
+.neon{color:#B9FF00}.bg-neon{background:#B9FF00;color:#000}
+.pill{background:#222;border:none;padding:8px 14px;border-radius:99px;color:#fff;font-size:12px}
+</style></head>
+<body style="max-width:420px;margin:0 auto;padding-bottom:20px">
+
+<div class="top">● LIVE 24/7 ON AIR - SIRDIO PLAY - KUMASI</div>
+
+<div style="padding:14px;display:flex;justify-content:space-between;align-items:center">
+<div style="font-weight:900;font-size:20px">SIRDIO <span class="neon">PLAY</span></div>
+<div style="display:flex;gap:6px"><span style="background:red;padding:5px 10px;border-radius:99px;font-size:11px;font-weight:900">● LIVE</span><span id="cnt" style="background:#222;padding:5px 10px;border-radius:99px;font-size:11px">1249 listening</span></div>
+</div>
+
+<div class="card" style="text-align:center">
+<div style="width:140px;height:140px;background:linear-gradient(135deg,#B9FF00,#00ff88);border-radius:24px;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:60px">📻</div>
+<h1 style="font-size:32px;font-weight:900;margin-top:14px">Kumasi<br>Morning Show</h1>
+<p style="color:#666;font-size:13px;margin-top:6px">SIRDIO Main Studio • Central Mart • GH</p>
+
+<div style="background:#000;border-radius:99px;padding:8px 14px;display:flex;align-items:center;gap:12px;margin-top:18px">
+<button id="pBtn" onclick="toggle()" class="play"><i class="fa-solid fa-play"></i></button>
+<div style="text-align:left;flex:1"><div style="font-size:14px;font-weight:800">Tap to Play Live</div><div style="font-size:11px;color:#666">Abbey Road Loud • 24/7</div></div>
+<div class="neon" style="font-size:10px;font-weight:900">● LIVE</div>
+</div>
+<audio id="a" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+<div style="display:flex;gap:8px;justify-content:center;margin-top:14px">
+<button class="pill"><i class="fa-solid fa-volume-high"></i> Loud</button>
+<button class="pill"><i class="fa-solid fa-heart" style="color:red"></i></button>
+<button class="pill"><i class="fa-solid fa-comment-dots"></i> Chat</button>
+<button onclick="share()" class="pill bg-neon" style="font-weight:900">Share</button>
+</div>
+</div>
+
+<div class="card">
+<div style="font-size:11px;font-weight:900;color:#666"><i class="fa-solid fa-broadcast-tower"></i> LIVE CHAT</div>
+<div id="chat" style="margin-top:10px;font-size:13px;line-height:1.7">
+<div><b class="neon">Kofi K:</b> Fire show boss! 🔥</div>
+<div><b class="neon">Ama G:</b> Loud clear!</div>
+<div><b class="neon">CEO:</b> Thanks family!</div>
+</div>
+<div style="display:flex;gap:8px;margin-top:12px">
+<input id="ci" placeholder="Say something..." style="flex:1;background:#000;border:1px solid #222;border-radius:99px;padding:10px 14px;color:#fff">
+<button onclick="send()" style="background:#fff;color:#000;border:none;padding:10px 18px;border-radius:99px;font-weight:800">Send</button>
+</div>
+</div>
+
+<a href="guest.html" style="display:block;margin:12px;background:transparent;border:2px solid #B9FF00;color:#B9FF00;text-align:center;padding:14px;border-radius:16px;font-weight:900;text-decoration:none">🎤 WANT TO JOIN LIVE? TAP HERE</a>
+
+<script>
+let play=false;function toggle(){let a=document.getElementById('a'),b=document.getElementById('pBtn');if(!play){a.play();b.innerHTML='<i class="fa-solid fa-pause"></i>';play=true}else{a.pause();b.innerHTML='<i class="fa-solid fa-play"></i>';play=false}}
+function send(){let i=document.getElementById('ci'),c=document.getElementById('chat');if(!i.value)return;c.innerHTML+='<div><b class="neon">You:</b> '+i.value+'</div>';i.value='';}
+function share(){navigator.clipboard.writeText(location.href);alert('Link copied!');}
+setInterval(()=>{document.getElementById('cnt').innerText=Math.floor(1240+Math.random()*30)+' listening'},2000);
+</script>
+</body></html>
